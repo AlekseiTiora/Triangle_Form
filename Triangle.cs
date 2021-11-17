@@ -117,7 +117,7 @@ namespace Triangle_Form
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b))//сумма 2 сторон должна быть больше третьей
+                if ((a > b + c) && (b > a + c) && (c > a + b) || a + b + c == 0)//сумма 2 сторон должна быть больше третьей
                     return false;
                 else return true;
             }

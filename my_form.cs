@@ -26,8 +26,16 @@ namespace Triangle_Form
         {
             listView3.Items.Clear();
             double a, h;
-            a = Convert.ToDouble(textA.Text); // считываем значение стороны a 
-            h = Convert.ToDouble(txtH.Text); // считываем значение высоту h
+            if (textA.Text == "" || txtH.Text == "")
+            {
+                a = h = 0;
+            }
+            else
+            {
+                a = Convert.ToDouble(textA.Text); // считываем значение стороны a 
+                h = Convert.ToDouble(txtH.Text); // считываем значение высоту h
+            }
+
             Triangle triangle = new Triangle(a,h); // создаем объект класса Triangle с именем triangle
             listView3.Items.Add("Сторона a"); //добавляем соответсвующие ячейки в коллекцию item объекта
             listView3.Items.Add("высота h"); // (при клике на кнопку Запуск первый столбец заполнится этими нашими именами)

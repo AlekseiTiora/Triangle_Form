@@ -21,9 +21,17 @@ namespace Triangle_Form
         {
             listView1.Items.Clear();
             double a, b, c;
-            a = Convert.ToDouble(txtA.Text); // считываем значение стороны a 
-            b = Convert.ToDouble(txtB.Text); // считываем значение стороны b
-            c = Convert.ToDouble(txtC.Text); // считываем значение стороны c
+            if (txtA.Text == "" || txtB.Text == "" || txtC.Text == "")
+            {
+                a = b = c = 0;
+            }
+            else
+            {
+                a = Convert.ToDouble(txtA.Text); // считываем значение стороны a 
+                b = Convert.ToDouble(txtB.Text); // считываем значение стороны b
+                c = Convert.ToDouble(txtC.Text); // считываем значение стороны c
+
+            }
             Triangle triangle = new Triangle(a, b, c); // создаем объект класса Triangle с именем triangle
             listView1.Items.Add("Сторона a"); //добавляем соответсвующие ячейки в коллекцию item объекта
             listView1.Items.Add("Сторона b"); // (при клике на кнопку Запуск первый столбец заполнится этими нашими именами)
@@ -41,6 +49,8 @@ namespace Triangle_Form
             else listView1.Items[5].SubItems.Add("Не существует");
             listView1.Items[6].SubItems.Add(triangle.TriangleType);
 
+
+
             if (a == b && a ==c)
             {
                 listView1.Items[6].SubItems.Add("равносторонний");
@@ -51,13 +61,14 @@ namespace Triangle_Form
                 listView1.Items[6].SubItems.Add("Равнобедренный");
                 pictureBox1.Image = Image.FromFile(@"..\..\Resources\ravnobed1.png");
             }
-            else 
+            else
             {
                 listView1.Items[6].SubItems.Add("Разносторонний");
                 pictureBox1.Image = Image.FromFile(@"..\..\Resources\razno1.jpg");
 
             }
         }
+        
 
         private void Rabota_Load(object sender, EventArgs e)
         {
